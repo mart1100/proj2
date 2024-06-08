@@ -48,6 +48,8 @@ class wtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         self.pushButton_dh.clicked.connect(self.calculate_dh)
         self.pushButton_pole.clicked.connect(self.calculate_area)
         self.pushButton_zlicz.clicked.connect(self.count_objects)
+        self.plik.fileChanged.connect(self.load_file)  # Połączenie sygnału fileChanged z funkcją wczytywania pliku
+        self.comboBox_uklad.currentIndexChanged.connect(self.select_projection)  # Połączenie wyboru układu z funkcją wyboru projekcji
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
         
@@ -107,3 +109,17 @@ class wtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         current_layer = self.combo_box.currentLayer()
         obj_number = current_layer.featureCount()
         self.label_wynik_obiekty.setText(str(obj_number))
+        
+    def load_file(self, fileName):
+        if fileName:
+            with open(fileName, 'r') as file:
+                data = file.readlines()
+                for line in data:
+                    x, y = map(float, line.strip().split())
+                    print(f"Wczytano punkt: {x}, {y}")
+                    # Tutaj możesz dodać kod przetwarzający wczytane punkty
+                    # Na przykład możesz dodać je do warstwy punktowej
+                
+    def select_projection(self):
+        selected_projection = self.comboBox_uklad.currentText()
+        print(f"Wybrano układ współrzędnych: {selected_projection}")
