@@ -1,4 +1,4 @@
-# Transformacje geodezyjne
+# Wtyczka programu QGIS
 
 ## Spis treści 
 * [Ogólne informacje](#ogólne-informacje)
