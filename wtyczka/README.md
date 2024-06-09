@@ -21,10 +21,12 @@ Wymagania, które musi spełnić komputer użytkownika:
 5. Posiadanie systemu operacyjnego Windows, MacOS lub Linux.
 
 ## Funkcje
-1. Przewyższenie
+**1. Przewyższenie** <br/>
 Aby obliczyć przewyższenie między punktami, należy wybrać dwa różne punkty na tej samej warstwie. Dzięki wtyczce, program obliczy różnice wysokości między tymi punktami na podstawie ich współrzędnych.
+> [!TIP]
+>  Aby znaleźć przewyższenie punktów B-A, użyj przewyższenia punktów A-B z przeciwnym znakiem. <br>
 
-2. Pole powierzchni
+**2. Pole powierzchni** <br/>
 Aby obliczyć pole powierzchni między punktami, należy wybrać co najmniej trzy różne punkty na tej samej warstwie. Dzięki wtyczce, program obliczy pole powierzchni zawarte między tymi punktami na podstawie ich współrzędnych.
 
 ## Struktura plików wejściowych
@@ -32,7 +34,7 @@ Aby obliczyć pole powierzchni między punktami, należy wybrać co najmniej trz
 1. Aby uruchomić program, Pobierz Python oraz QGIS w odpowiedniej wersji. Możesz w tym celu skorzystać z odnośników zamieszczonych w zakładce [Wymagania sprzętowe](#wymagania-sprzętowe).
 2. Pobraną wtyczkę zamieść w folderze z wtyczkami QGIS, np.:
 ```
-C:\Users\* TWOJA_NAZWA_UŻYTKOWNIKA *\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins
+C:\Users\**TWOJA_NAZWA_UŻYTKOWNIKA**\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins
 ```
 > [!TIP]
 >  Aby znaleźć lokalizację folderu z wtyczkami należy wybrać w QGIS-ie Ustawienia > Profile użytkownika > Otwórz katalog aktywnego profilu. <br>
