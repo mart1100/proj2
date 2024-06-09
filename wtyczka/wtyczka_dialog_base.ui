@@ -166,7 +166,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Liczba obiektów na warstwie wynosi:</string>
+    <string>Liczba zaznaczonych obiektów:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_wynik_obiekty">
@@ -209,6 +209,9 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
@@ -221,6 +224,9 @@
      <width>441</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -235,11 +241,24 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QListView" name="list_wsp">
+  <widget class="QgsFileWidget" name="plik">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>300</y>
+     <width>151</width>
+     <height>27</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_wsp">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -248,76 +267,47 @@
      <height>121</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QgsFileWidget" name="plik">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>300</y>
-     <width>151</width>
-     <height>27</height>
-    </rect>
+   <property name="rowCount">
+    <number>6</number>
    </property>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
   </widget>
-  <widget class="QComboBox" name="comboBox_uklad">
+  <widget class="QComboBox" name="comboBox_jed">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>300</y>
-     <width>121</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>PL-1992</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PL-2000(strefa 5)</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PL-2000(strefa 6)</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PL-2000(strefa 7)</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PL-2000(strefa 8)</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QComboBox" name="comboBox_jedn">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>460</y>
+     <x>350</x>
+     <y>430</y>
      <width>73</width>
      <height>22</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string>m2</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>a</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>ha</string>
-    </property>
-   </item>
+  </widget>
+  <widget class="QPushButton" name="pushButton_wyczysc">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>530</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Wyczyść</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <customwidgets>
