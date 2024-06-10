@@ -6,6 +6,7 @@
 * [Funkcje](#funkcje)
 * [Uruchomienie programu](#uruchomienie-programu)
 * [Przykłady użycia](#przykłady-użycia)
+* [Format pliku wejściowego](#format-pliku-wejściowego)
 * [Znane błędy](#znane-błędy)
 
 ## Ogólne informacje
@@ -16,7 +17,7 @@ Wymagania, które musi spełnić komputer użytkownika:
 1. Posiadanie wersji programu [Python 3.8 lub wyższej](https://www.python.org/downloads/).
 2. Posiadanie wersji programu [QGIS 3.34.5 lub wyższej](https://qgis.org/pl/site/forusers/download.html).
 3. Zainstalowane biblioteki os, qgis.PyQt, qgis.core, qgis.utils
-4. Dane wejściowe muszą być zapisane w pliku tekstowym.
+4. Dane wejściowe muszą być zapisane w pliku tekstowym w odpowiednim formacie.
 5. Posiadanie systemu operacyjnego Windows, MacOS lub Linux.
 
 ## Funkcje
@@ -42,7 +43,20 @@ C:\Users\**TWOJA_NAZWA_UŻYTKOWNIKA**\AppData\Roaming\QGIS\QGIS3\profiles\defaul
 4. Po wczytaniu interesujących Cię warstw, możesz zacząć pracować z wtyczką.
 
 ## Przykłady użycia
-Zależnie od funkcji, której chcesz użyć, zaznacz dwa lub więcej punktów. Z rozwijalnej listy warstw wybierz tę, na której znajdują się twoje punkty. Klikajać przycisk 'Zlicz', otrzymasz informację o liczbie zaznaczonych obiektów znajdujących się na tej warstwie. Możesz również wczytać wspólrzędne punktów z pliku tekstowego, używając środkowego panelu. Aby obliczyć przewyższenie, kliknij przycisk 'Oblicz dh'. Jeżeli interesuje Cię pole obszaru, znajdującego się pomiędzy zaznaczonymi punktami, użyj 'Oblicz pole'. Z rozwijalnej listy po prawej, możesz wybrać jednostki powierzchni Twojego wyniku. Na koniec, przyciskiem 'Wyczyść' możesz zrestartować wpisane dane.
+Zależnie od funkcji, której chcesz użyć, zaznacz dwa lub więcej punktów. Z rozwijalnej listy warstw wybierz tę, na której znajdują się twoje punkty. Klikajać przycisk 'Zlicz', otrzymasz informację o liczbie zaznaczonych obiektów znajdujących się na tej warstwie. Możesz również wczytać współrzędne punktów z pliku tekstowego jako warstwę, używając środkowego panelu. Zatwierdź, klikając przycisk 'Wczytaj plik jako warstwę'. Aby obliczyć przewyższenie, kliknij przycisk 'Oblicz dh'. Jeżeli interesuje Cię pole obszaru, znajdującego się pomiędzy zaznaczonymi punktami, użyj 'Oblicz pole'. Z rozwijalnej listy po prawej, możesz wybrać jednostki powierzchni Twojego wyniku. Na koniec, przyciskiem 'Wyczyść' możesz zrestartować wpisane dane.
+
+## Format pliku wejściowego
+Do wczytania współrzędnych punktów z pliku tekstowego jako warstwy, musisz sformatować plik w sposób, przedstawiony na przykładzie:
+```
+XY
+436038.478265 394983.226667
+424715.324196 395073.18203
+426409.064587 397258.600065
+434147.142494 395994.474441
+425935.308145 396100.61318
+426278.150959 397326.466664
+```
+
 
 ## Znane błędy
 Podczas tworzenia kodu nie napotkaliśmy na żadne błędy programu.
