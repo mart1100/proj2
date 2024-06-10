@@ -57,6 +57,7 @@ class wtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         self.comboBox_jed.addItem("a")
         self.pushButton_wyczysc.clicked.connect(self.clear_results)
         self.plik.fileChanged.connect(self.load_file_to_table)
+        self.pushButton_wczytaj.clicked.connect(self.load_file_to_layer)
     
     def calculate_dh(self):
         current_layer = self.combo_box.currentLayer()
@@ -169,4 +170,10 @@ class wtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
                 self.tableWidget_wsp.setItem(i, 0, QtWidgets.QTableWidgetItem(x))
                 self.tableWidget_wsp.setItem(i, 1, QtWidgets.QTableWidgetItem(y))
 
+    def load_file_to_layer(self):
+        filepath = QtWidgets.QFileDialog.getOpenFileName(filter = "txt (*.txt *.TXT);;CSV (*.csv *.CSV)")
+        if not filepath[0] == "": 
+            uri = "file:///" + filepath[0] + "?delimiter=%s&crs=epsg:2178& xField=%s&yField=%s" % (" ", "x", "y")
+            new_lyr = QgsVectorLayer(uri, 'Warstwa z TXT', 'delimitedtext')
+            QgsProject.instance().addMapLayer(new_lyr)
     
