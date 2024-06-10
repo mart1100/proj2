@@ -4,7 +4,6 @@
 * [Ogólne informacje](#ogólne-informacje)
 * [Wymagania sprzętowe](#wymagania-sprzętowe)
 * [Funkcje](#funkcje)
-* [Struktura plików wejściowych](#struktura-plików-wejściowych)
 * [Uruchomienie programu](#uruchomienie-programu)
 * [Przykłady użycia](#przykłady-użycia)
 * [Znane błędy](#znane-błędy)
@@ -29,7 +28,6 @@ Aby obliczyć przewyższenie między punktami, należy wybrać dwa różne punkt
 **2. Pole powierzchni** <br/>
 Aby obliczyć pole powierzchni między punktami, należy wybrać co najmniej trzy różne punkty na tej samej warstwie. Dzięki wtyczce, program obliczy pole powierzchni zawarte między tymi punktami na podstawie ich współrzędnych.
 
-## Struktura plików wejściowych
 ## Uruchomienie programu
 1. Aby uruchomić program, Pobierz Python oraz QGIS w odpowiedniej wersji. Możesz w tym celu skorzystać z odnośników zamieszczonych w zakładce [Wymagania sprzętowe](#wymagania-sprzętowe).
 2. Pobraną wtyczkę zamieść w folderze z wtyczkami QGIS, np.:
@@ -41,7 +39,10 @@ C:\Users\**TWOJA_NAZWA_UŻYTKOWNIKA**\AppData\Roaming\QGIS\QGIS3\profiles\defaul
 3. Następnie, w programie QGIS, udaj się do zakładki 'Wtyczki' i wybierz 'Zarzdządzanie wtyczkami'. W panelu 'Ustawienia', zaznacz opcję 'Pokazuj również wtyczki eksperymentalne'. Do odświeżenia repozytorium, użyj przycisku 'Wczytaj ponownie zawartość repozytorium'. Teraz wtyczka powinna być widoczna w panelu 'Wszystkie'. Musisz ją pobrać, klikając 'Zainstaluj wtyczkę eksperymentalną' znajdujące się w prawym dolnym rogu okna. Teraz wtyczka pojawia się w liście rozwijalnej zakładki 'Wtyczki'.
 > [!TIP]
 > Jeśli po wykonaniu powyższych kroków wtyczka nie pojawia się na liście dostępnych wtyczek, powinna pomóc opcja 'Instaluj z pliku ZIP' dostępna w oknie Zarządzania wtyczkami. 
-4. Po wczytaniu interesujących Cię warstw, możesz zacząć pracować z wtyczką. Zależnie od funkcji, której chcesz użyć, zaznacz dwa lub trzy punkty.
+4. Po wczytaniu interesujących Cię warstw, możesz zacząć pracować z wtyczką.
 
 ## Przykłady użycia
+Zależnie od funkcji, której chcesz użyć, zaznacz dwa lub więcej punktów. Z rozwijalnej listy warstw wybierz tę, na której znajdują się twoje punkty. Klikajać przycisk 'Zlicz', otrzymasz informację o liczbie zaznaczonych obiektów znajdujących się na tej warstwie. Możesz również wczytać wspólrzędne punktów z pliku tekstowego, używając środkowego panelu. Aby obliczyć przewyższenie, kliknij przycisk 'Oblicz dh'. Jeżeli interesuje Cię pole obszaru, znajdującego się pomiędzy zaznaczonymi punktami, użyj 'Oblicz pole'. Z rozwijalnej listy po prawej, możesz wybrać jednostki powierzchni Twojego wyniku. Na koniec, przyciskiem 'Wyczyść' możesz zrestartować wpisane dane.
+
 ## Znane błędy
+Podczas tworzenia kodu nie napotkaliśmy na żadne błędy programu.
