@@ -56,7 +56,8 @@ class wtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         self.comboBox_jed.addItem("ha")
         self.comboBox_jed.addItem("a")
         self.pushButton_wyczysc.clicked.connect(self.clear_results)
-
+        self.plik.fileChanged.connect(self.load_file_to_table)
+    
     def calculate_dh(self):
         current_layer = self.combo_box.currentLayer()
         selected_features = current_layer.selectedFeatures()
@@ -110,32 +111,34 @@ class wtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         if n < 3:
             iface.messageBar().pushMessage("Błąd", "Zaznacz co najmniej 3 punkty do obliczenia pola.", level=Qgis.Warning, duration=5)
             return
-    
+
         area = 0.0
         points_used = []
+        point_geometry = []
         for i in range(n):
             x1, y1 = selected_features[i].geometry().asPoint().x(), selected_features[i].geometry().asPoint().y()
             x2, y2 = selected_features[(i + 1) % n].geometry().asPoint().x(), selected_features[(i + 1) % n].geometry().asPoint().y()
             area += (x1 + x2) * (y2 - y1)
             points_used.append(selected_features[i]['nr_punktu'])
-    
+            point_geometry.append(selected_features[i].geometry().asPoint())
+
         area /= 2
-        
-        # Pobierz wybraną jednostkę
+
+    # Pobierz wybraną jednostkę
         jednostka = self.comboBox_jed.currentText()
-    
+
         if jednostka == "m2":
             pass  # Nie ma potrzeby dokonywania przeliczeń
         elif jednostka == "ha":
             area /= 10000  # Przelicz na hektary
         elif jednostka == "a":
             area /= 100  # Przelicz na ary
-        
+
         self.label_wynik_pole.setText(f'{area:.3f}')
         message = f"Dla punktów: {', '.join(map(str, points_used))} pole wynosi {area:.3f} {jednostka}"
         iface.messageBar().pushMessage("Obliczono", message, level=Qgis.Success, duration=7)
 
-
+    
     def count_objects(self):
         current_layer = self.combo_box.currentLayer()
         obj_number = len(current_layer.selectedFeatures())
@@ -147,3 +150,23 @@ class wtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         self.label_wynik_obiekty.clear()
         self.tableWidget_wsp.clearContents()  # Czyści tylko zawartość, nie usuwając wierszy ani kolumn
         self.plik.setFilePath('')  # Czyści zawartość przycisku plik
+
+    def load_file_to_table(self, file_path):
+        if not file_path:
+            return
+        with open(file_path, 'r') as file:
+            data = file.readlines()
+            row_count = len(data)
+            column_count = 2  # Wczytujemy 2 kolumny (x, y)
+            self.tableWidget_wsp.setRowCount(row_count)
+            self.tableWidget_wsp.setColumnCount(column_count)
+            self.tableWidget_wsp.setHorizontalHeaderLabels(["x", "y"])
+            for i, line in enumerate(data):
+                parts = line.strip().split()
+                if len(parts) != 2:
+                    continue
+                x, y = parts
+                self.tableWidget_wsp.setItem(i, 0, QtWidgets.QTableWidgetItem(x))
+                self.tableWidget_wsp.setItem(i, 1, QtWidgets.QTableWidgetItem(y))
+
+    
